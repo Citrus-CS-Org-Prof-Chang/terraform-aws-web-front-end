@@ -26,12 +26,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Render terraform-docs
-        uses: terraform-docs/gh-actions@v1.3.0
         with:
-          config-file: .terraform-docs.yml
-          working-dir: .
-          output-file: README.md
-          output-method: inject
+          ref: ${{ github.event.pull_request.head.ref }}
+      
+      - name: Install terraform-docs
+        run: |
+          wget -qO- https://github.com/terraform-docs/terraform-docs/releases/download/v0.18.0/terraform-docs-v0.18.0-linux-amd64.tar.gz | tar xz
+          chmod +x terraform-docs
+          sudo mv terraform-docs /usr/local/bin/
+      
+      - name: Generate terraform-docs
+        run: terraform-docs .
+      
       - name: Verify README up to date
-        run: git diff --exit-code README.md
+        run: |
+          if ! git diff --exit-code README.md; then
+            echo "❌ README.md is not up-to-date with terraform-docs"
+            echo ""
+            echo "Changes detected:"
+            git diff README.md
+            echo ""
+            echo "Please run 'terraform-docs .' locally and commit the changes"
+            exit 1
+          fi
+          echo "✅ README.md is up-to-date"

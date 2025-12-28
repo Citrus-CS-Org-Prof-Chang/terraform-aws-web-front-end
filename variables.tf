@@ -61,7 +61,7 @@ variable "instance_tags" {
   default     = {}
 }
 
-variable "test2" {
+variable "test3" {
   type        = string
   description = "Test variable"
   default     = null
