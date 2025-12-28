@@ -53,3 +53,10 @@ variable "vpc_id" {
   type        = string
   description = "VPC ID where resources will be deployed."
 }
+
+# enhancement per m4 requirement
+variable "instance_tags" {
+  type        = map(string)
+  description = "Additional tags to apply to EC2 instances launched by the Auto Scaling Group"
+  default     = {}
+}
