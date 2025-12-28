@@ -47,7 +47,7 @@ module "web_front_end" {
 | <a name="input_launch_template_ami"></a> [launch\_template\_ami](#input\_launch\_template\_ami) | AMI ID to use for the launch template | `string` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | (Required) Prefix to use for all resources in this module. | `string` | n/a | yes |
 | <a name="input_public_subnet_ids"></a> [public\_subnet\_ids](#input\_public\_subnet\_ids) | List of public subnet IDs for the autoscale group and NLB. | `list(string)` | n/a | yes |
-| <a name="input_test3"></a> [test3](#input\_test3) | Test variable | `string` | `null` | no |
+| <a name="input_test4"></a> [test4](#input\_test4) | Test variable | `string` | `null` | no |
 | <a name="input_user_data_contents"></a> [user\_data\_contents](#input\_user\_data\_contents) | User data script contents for the launch template. | `string` | n/a | yes |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID where resources will be deployed. | `string` | n/a | yes |
 
