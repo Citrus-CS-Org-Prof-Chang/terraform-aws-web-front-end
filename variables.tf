@@ -60,3 +60,9 @@ variable "instance_tags" {
   description = "Additional tags to apply to EC2 instances launched by the Auto Scaling Group"
   default     = {}
 }
+
+variable "test" {
+  type        = string
+  description = "Test variable"
+  default     = null
+}

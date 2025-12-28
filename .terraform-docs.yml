@@ -4,11 +4,7 @@ output:
   mode: inject
   template: |-
     <!-- BEGIN_TF_DOCS -->
-    ## Inputs
-    {{ .Inputs }}
-
-    ## Outputs
-    {{ .Outputs }}
+    {{ .Content }}
     <!-- END_TF_DOCS -->
 sections:
   hide:
